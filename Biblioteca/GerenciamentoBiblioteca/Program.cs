@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GerenciamentoBiblioteca;
 
-
-
 // Criando um livro
 Livro livro = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", "1234567890");
 Console.WriteLine(livro.ObterResumo());

@@ -13,8 +13,8 @@
             Titulo = titulo;
             Descricao = descricao;
             Horario = horario;
-            Participantes = new List<Participante>();
-            Avaliacoes = new Dictionary<Participante, int>();
+            Participantes = [];
+            Avaliacoes = [];
         }
 
         public void AdicionarParticipante(Participante participante)

@@ -8,14 +8,33 @@
         protected Participante(string nome)
         {
             Nome = nome;
-            Agenda = new List<Atividade>();
+            Agenda = [];
         }
 
         public void AdicionarAtividade(Atividade atividade)
         {
-            Agenda.Add(atividade);
+            if (!Agenda.Exists(a => a.Horario == atividade.Horario))
+            {
+                Agenda.Add(atividade);
+
+                Console.WriteLine($"{Nome} adicionou {atividade.Titulo} à sua agenda.");
+            }
+            else
+            {
+                Console.WriteLine($"{Nome} já tem uma atividade marcada para {atividade.Horario}.");
+            }
         }
 
         public abstract void Participar();
+
+        public void MostrarAgenda()
+        {
+            Console.WriteLine($"Agenda de {Nome}:");
+
+            foreach (var atividade in Agenda.OrderBy(a => a.Horario))
+            {
+                Console.WriteLine($"{atividade.Horario:HH:mm} - {atividade.Titulo}");
+            }
+        }
     }
 }
